@@ -40,7 +40,7 @@ https://openweathermap.org/api - 1M calls/month free
 
 ## MVP Goals
 * Users  login using Google OAuth.
-* Without logging in, users can:
+* Without logging in, guests can:
     - [] View a list of parks
     - [] View a list of trails for a park
     - [] View a trail's reviews
@@ -51,6 +51,8 @@ https://openweathermap.org/api - 1M calls/month free
     - [] View a list of reviews they wrote
     - [] Update a review they wrote
     - [] Delete a review they wrote
+* When a guest attempts to access user-only resources (like writing a review), direct user to login.
+* "My Reviews" only displays in the menu bar when a user is logged in.
 
 
 ## Stretch Goals
