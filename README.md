@@ -2,27 +2,57 @@
 Crowd-sourcing reviews of hiking trails. Trails and reviews are available to the public, but users must login to create, edit, or delete their own reviews.
 
 ## Technologies Used
-Lanaguages: HTML, CSS, Javascript
-Frameworks: Node.js, Express
-Data/API: MongoDB, GoogleMaps, OAuth (Google)
-https://developers.google.com/maps/documentation/javascript
+* Lanaguages: HTML, CSS, Javascript
+* Frameworks: Node.js, Express
+* Authentication: OAuth (Google)
+* Data/API: MongoDB, Mapbox API, OpenWeather API
+https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
+https://openweathermap.org/api - 1M calls/month free
 
 ## Entity Relationship Diagram (ERD)
-Users
-* Name
-* Email
-* Review
-Trails (trailheads?)
-* Name
-* Lat
-* Long
-* Address?
-* Distance
-Reviews
-* Trail
-* Reviewer
-* Rating
-* Review
+`Users` Schema
+| Field      | Type | Notes |
+| ----------- | ----------- | ----------- |
+| Name  | String  | Required |
+| Email  | String  | Required |
+| Reviews | [ObjectId, ObjectId] | Reference to `Reviews` schema |
+|Timestamps |  |  |
+
+`Parks` Schema
+| Field      | Type | Notes |
+| ----------- | ----------- | ----------- |
+| Name  | String  | Required |
+| Latitude | Number |  |
+| Longitude | Number |  |
+| Street Address | String |  |
+| City | String |  |
+| State | String | enum: [] |
+| Zip Code | Number | min: 5, max: 5 |
+| Fee | Number | default: 0 |
+| Trails | ObjectId | Reference to `Trails` schema |
+
+`Trails` Schema
+| Field      | Type | Notes |
+| ----------- | ----------- | ----------- |
+| Name  | String  | Required |
+
+`Reviews` Schema
+| Field      | Type | Notes |
+| ----------- | ----------- | ----------- |
+| Name  | String  | Required |
+
+* Trails (trailheads?)
+    * Name (String, required)
+    * Park (ObjectID)
+    * Distance (Number)
+    * Reviews (Reference)
+    * (Timestamp)
+* Reviews
+    * Trail (ObjectID)
+    * Reviewer (ObjectID)
+    * Rating (Number, required, min: 1, max: 5)
+    * Review (String, max: 5000)
+    * (Timestamp)
 
 
 ## RESTful Routing Chart
@@ -42,6 +72,7 @@ Reviews
 ## User Stories
 * AAU, I want to create an account.
 * AAU, I want to delete my account.
+* AAU, I want to login/logout of my account.
 * AAU, I want to read reviews of trails.
 * AAU, I want to rate trails I've hiked.
 * AAU, I want to view all trails I've reviewed.
@@ -62,6 +93,8 @@ Reviews
 ## Stretch Goals
 * Use Google Map API to embed a map with pins for all trails (Home page)
 * Display map with trail on /trails:id
+* Display 7-day weather forecast for user (Home page)
 * Sort reviews by date or rating.
 * Highest rated trails
+* Display weather forecast at the top of page 
 
