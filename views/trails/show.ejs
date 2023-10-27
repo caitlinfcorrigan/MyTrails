@@ -1,0 +1,40 @@
+<%- include('./partials/header') %>
+
+<h1><%= title %></h1>
+<section id="show-trail">
+    <div>Trail Name:</div>
+    <div><%= trail.name %></div>
+    <div>Distance:</div>
+    <div><%= trail.distance %></div>
+    <div>Address:</div>
+    <div><%= trail.streetAddress%></div>
+    <div><%= trail.city%>,<%= trail.state%> <%= trail.zip%></div>
+</section>
+
+<h2>Reviews</h2>
+<% if (trail.reviews.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+                <th>Review</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% trails.reviews.forEach(function (r) { %>
+                <tr>
+                    <!-- Need to figure out how to pull user -->
+                    <td><%= r.reviewText %></td>
+                    <td><%= r.rating %></td>
+                </tr>
+            <% }); %>
+
+        </tbody>
+    </table>
+<% } else { %>
+    <h3>No reviews yet</h3>
+<% } %>
+
+<%- include('./partials/footer') %>
