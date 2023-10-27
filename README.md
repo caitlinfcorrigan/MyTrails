@@ -1,5 +1,5 @@
 # MyTrails
-MyTrails is a full stack application that crowd-sources reviews of hiking trails in parks. Parks, trails, and reviews are available to the public. Authenticated users can add new parks, trails, and reviews. Users can update or delete their own reviews.
+MyTrails is a full stack application that crowd-sources reviews of hiking trails. Trails and reviews are available to guest users (not logged in). Authenticated users can add new reviews to trails. Authenticated users also can update or delete their own reviews.
 
 ## Technologies Used
 * Lanaguages: HTML, CSS, Javascript
