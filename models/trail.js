@@ -18,10 +18,10 @@ const trailSchema = new Schema({
         min: 5,
         max: 5
     },
-    reviews: {
+    reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'reviewSchema'
-    }
+    }]
 },
 {
     timestamps: true
