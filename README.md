@@ -21,9 +21,9 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 | GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
 | GET | `/trails/:id` | READ | `{ trail }` | |
 | POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | |
-| GET | `/users/:id` | READ | Return `{ user }` | List of user's reviews|
-| PUT | `/users/:id/reviews/` | UPDATE | Modifies a `{ review }` |  |
-| DELETE | `/users/:id/reviews` | DESTROY | Deletes a `{ review }` | |
+| GET | `/reviews` | READ | Return `{ user }` | List of user's reviews|
+| PUT | `/reviews` | UPDATE | Modifies a `{ review }` the user wrote|  |
+| DELETE | `/reviews` | DESTROY | Deletes a `{ review }` the user wrote| |
 
 ### RESTful Routes for Reach Goals
 | HTTP METHOD (_Verb_) | URL (_Nouns_)     | CRUD    | Response          | Notes        |
