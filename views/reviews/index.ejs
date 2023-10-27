@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+
+<h1><%= title %></h1>
+
+<% if (currUser.reviews.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <!-- Can we get trail if it's not on the review doc? -->
+                <th>Trail</th>
+                <th>Date</th>
+                <th>Rating</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% currUser.reviews.forEach(function(r) { %>
+                <tr>
+                    <td><%= r.trail%></td>
+                    <td><%= r.timestamp.toLocaleDateString()></td>
+                    <td><%= r.rating%></td>
+                    <td><%= r.reviewText%></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h5>No reviews yet</h5>
+<% } %>
+
+<%- include('./partials/footer') %>
