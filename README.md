@@ -55,7 +55,7 @@ https://openweathermap.org/api - 1M calls/month free
 ## MVP Goals
 * Users  login using Google OAuth.
 * Without logging in, guests can:
-    - [] View a list of parks
+    - [ ] View a list of parks
     - [] View a list of trails for a park
     - [] View a trail's reviews
 * When users login, they can:
