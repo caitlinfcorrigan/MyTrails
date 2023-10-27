@@ -17,6 +17,9 @@ https://openweathermap.org/api - 1M calls/month free
 | HTTP METHOD (_Verb_) | URL (_Nouns_)     | CRUD    | Response          | Notes        |
 | -------------------- | ----------------- | ------- | ----------------- | ------------ |
 | GET | `/` | READ | Display Home page|  |
+| GET | `/auth/google` | READ | Directs to Google login | |
+| GET | `/auth2callback` | READ | Returns `{ user }` | Select or create user in database |
+| GET | `/logout` | READ | Log out
 | GET | `/parks` | READ | Array of  `[{ park }, { park }]` | |
 | GET | `/parks/new` | READ | Form to create new `{ park }` | |
 | POST | `/parks` | CREATE | Add a new `{ park }` | Guest users directed to login |
