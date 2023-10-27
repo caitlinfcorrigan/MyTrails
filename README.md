@@ -21,11 +21,9 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 | GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
 | GET | `/trails/:id` | READ | `{ trail }` | |
 | POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | |
-| PUT | `/trails/:id/review` | UPDATE | Updates a `{ review }` | Only if user created review |
-| DELETE | `/trails/:id/review` | DESTROY | Deletes a `{ review }` | Only if user created review
-| GET | `/users/:id` | READ | Return `{ user }` | User's reviews|
-| PUT | `/users/:id/reviews/` | UPDATE | Modifies a `{ review }` | Only if user created review |
-| DELETE | `/users/:id/reviews` | DESTROY | Deletes a `{ review }` | Only if user created review |
+| GET | `/users/:id` | READ | Return `{ user }` | List of user's reviews|
+| PUT | `/users/:id/reviews/` | UPDATE | Modifies a `{ review }` |  |
+| DELETE | `/users/:id/reviews` | DESTROY | Deletes a `{ review }` | |
 
 ### RESTful Routes for Reach Goals
 | HTTP METHOD (_Verb_) | URL (_Nouns_)     | CRUD    | Response          | Notes        |
@@ -38,6 +36,8 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 | GET | `/parks/:id/new` | READ | Form to create new `{ trail }` | |
 | POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` | uest users directed to login |
 | POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` | Guest users directed to login |
+| PUT | `/trails/:id/review` | UPDATE | Updates a `{ review }` | Only if user created review |
+| DELETE | `/trails/:id/review` | DESTROY | Deletes a `{ review }` | Only if user created review |
 
 ## Wireframes
 ![My Reviews page](wireframes/my-reviews.png)
