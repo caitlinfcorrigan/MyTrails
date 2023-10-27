@@ -6,7 +6,7 @@ reviewSchema = new Schema({
         type: Number,
         enum: [1, 2, 3, 4, 5]
     },
-    review: String
+    reviewText: String
 },
 {
     timestamps: true

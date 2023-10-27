@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 const reviewsCtrl = require('../controllers/reviews')
 
 // GET /reviews -- User views My Reviews

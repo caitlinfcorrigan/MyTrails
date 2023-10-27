@@ -20,7 +20,7 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 | GET | `/logout` | READ | Log out
 | GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
 | GET | `/trails/:id` | READ | `{ trail }` | |
-| POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | |
+| POST | `/trails/:id` | CREATE | Add a new `{ review }` | |
 | GET | `/reviews` | READ | Return `{ user }` | List of user's reviews|
 | PUT | `/reviews` | UPDATE | Modifies a `{ review }` the user wrote|  |
 | DELETE | `/reviews` | DESTROY | Deletes a `{ review }` the user wrote| |
