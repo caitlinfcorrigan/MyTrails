@@ -11,19 +11,20 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 https://openweathermap.org/api - 1M calls/month free
 
 ## Entity Relationship Diagram (ERD)
-
-
+![ERD](wireframes/ERD.png)
 
 ## RESTful Routing Chart
 | HTTP METHOD (_Verb_) | URL (_Nouns_)     | CRUD    | Response          | Notes        |
 | -------------------- | ----------------- | ------- | ----------------- | ------------ |
 | GET | `/` | READ | Display Home page|  |
 | GET | `/parks` | READ | Array of  `[{ park }, { park }]` | |
-| POST | `/parks` | CREATE | Add a new `{ park }` | |
+| GET | `/parks/new` | READ | Form to create new `{ park }` | |
+| POST | `/parks` | CREATE | Add a new `{ park }` | Guest users directed to login |
 | GET | `/parks/:id` | READ | `{ park }` | |
-| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` |  |
+| GET | `/parks/:id/new` | READ | Form to create new `{ trail }` | |
+| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` | uest users directed to login |
 | GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
-| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` |  |
+| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` | uest users directed to login |
 | GET | `/trails/:id` | READ | `{ trail }` | |
 | GET | `/trails/:id/reviews` | READ | Array of `[{ review }, { review }]` | |
 | POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | |
@@ -34,7 +35,11 @@ https://openweathermap.org/api - 1M calls/month free
 | DELETE | `/users/:id/reviews` | DESTROY | Deletes a `{ review }` | Only if user created review |
 
 ## Wireframes
-
+![Home page](wireframes/home.png =800x1100)
+![Parks page](wireframes/park.png)
+![Trails page](wireframes/trail.png)
+![Reviews page](wireframes/reviews.png)
+![Forms for park or trail](wireframes/create-forms.png)
 
 ## User Stories
 - [] AAU, I want to create an account.
