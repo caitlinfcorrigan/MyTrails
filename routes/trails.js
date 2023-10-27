@@ -14,3 +14,5 @@ router.get('/trails/:id', trailsCtrl.show);
 
 // POST /trails/:id
 router.post('/trails/:id', trailsCtrl.create);
+
+module.exports = router;

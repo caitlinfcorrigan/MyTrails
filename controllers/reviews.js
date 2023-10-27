@@ -8,11 +8,11 @@ module.exports = {
 }
 
 function deleteReview(req, res) {
-
+    console.log("deleteReview placeholder")
 }
 
 function update(req, res) {
-
+    console.log("update review placeholder");
 }
 
 async function index(req, res) {

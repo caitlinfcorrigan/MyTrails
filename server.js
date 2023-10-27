@@ -43,8 +43,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/', trailsRouter);
-app.use('/', reviewsRouter);
+app.use('/trails', trailsRouter);
+app.use('/reviews', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

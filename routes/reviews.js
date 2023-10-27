@@ -10,3 +10,5 @@ router.put('/reviews/:id', reviewsCtrl.update);
 
 // DELETE /reviews/:id -- User deletes their review
 router.delete('/reviews/:id', reviewsCtrl.delete);
+
+module.exports = router;

@@ -9,7 +9,7 @@ module.exports = {
 
 async function create(req, res) {
     for (let key in req.body) {
-        if (req.body[key] === '') delete req.body.[key];
+        if (req.body[key] === '') delete req.body[key];
     }
     try {
         const review = await Review.create(req.body);
@@ -28,6 +28,7 @@ async function show(req, res) {
 }
 
 async function index(req, res) {
+    console.log("hit the controller");
     const trails = await Trail.find({});
     res.render('trails/index', { title: 'All Trails', trails });
 }
