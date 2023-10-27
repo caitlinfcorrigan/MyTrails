@@ -17,12 +17,21 @@ https://openweathermap.org/api - 1M calls/month free
 ## RESTful Routing Chart
 | HTTP METHOD (_Verb_) | URL (_Nouns_)     | CRUD    | Response          | Notes        |
 | -------------------- | ----------------- | ------- | ----------------- | ------------ |
-| GET | `/index` | READ | Display Home page|  |
-| POST | `/trails` | CREATE | Add a new `{ trail }` | Adds a new trail in Mongo & drops pin in map |
-| POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | Adds a new review to a trail |
-| PUT | `/trails/:id/reviews/:id` | UPDATE | Modifies a `{ review }` | Redirects back to `/trails/:id` |
-| GET | `/users` | READ | Return array of `[ user, user ]` | View all app users and stats? |
-| GET | `/users/:id` | READ | Return `{ user }` | |
+| GET | `/` | READ | Display Home page|  |
+| GET | `/parks` | READ | Array of  `[{ park }, { park }]` | |
+| POST | `/parks` | CREATE | Add a new `{ park }` | |
+| GET | `/parks/:id` | READ | `{ park }` | |
+| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` |  |
+| GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
+| POST | `/parks/:id/trails` | CREATE | Add a new `{ trail }` |  |
+| GET | `/trails/:id` | READ | `{ trail }` | |
+| GET | `/trails/:id/reviews` | READ | Array of `[{ review }, { review }]` | |
+| POST | `/trails/:id/review` | CREATE | Add a new `{ review }` | |
+| PUT | `/trails/:id/review` | UPDATE | Updates a `{ review }` | Only if user created review |
+| DELETE | `/trails/:id/review` | DESTROY | Deletes a `{ review }` | Only if user created review
+| GET | `/users/:id` | READ | Return `{ user }` | User's reviews|
+| PUT | `/users/:id/reviews/` | UPDATE | Modifies a `{ review }` | Only if user created review |
+| DELETE | `/users/:id/reviews` | DESTROY | Deletes a `{ review }` | Only if user created review |
 
 ## Wireframes
 
