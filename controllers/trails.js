@@ -7,7 +7,7 @@ module.exports = {
     create
 }
 
-async function create(req, res) = {
+async function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body.[key];
     }
@@ -21,13 +21,12 @@ async function create(req, res) = {
     }
 }
 
-async function show(req, res) = {
+async function show(req, res) {
     const trail = await Trail.findById(req.params.id).populate('review');
-    const reviews = await Review.find({ _id: { $nin: trail.review} }).sort('rating');
-    res.render('trails/show', { title: `${trail.name}'s Reviews`, trail, reviews});
+    res.render('trails/show', { title: `${trail.name}'s Reviews`, trail});
 }
 
-async function index(req, res) = {
+async function index(req, res) {
     const trails = await Trail.find({});
     res.render('trails/index', { title: 'All Trails', trails });
 }
