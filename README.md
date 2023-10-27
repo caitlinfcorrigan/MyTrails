@@ -73,6 +73,6 @@ Reviews page is a similar style for both `/trails/:id/reviews` and `/users/:id`
 * Embed Mapbox in the `/` page
     * Use API to display markers representing parks on the map
     * Allow users to click a marker and link to the park's page
-* Display map with trail on /trails:id
+* Display map with trail on `/trails:id`
 * On a trail's page, sort reviews by date or rating
 
