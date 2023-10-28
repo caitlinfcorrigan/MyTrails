@@ -1,15 +1,16 @@
-const Trail = ('../models/trail');
-const Review = ('../models/review');
+const Trail = require('../models/trail');
+const Review = require('../models/review');
 
 module.exports = {
     index,
     show,
-    // create,
+    create,
     new: newTrail,
     createTrail
 }
 
 async function createTrail(req, res) {
+    console.log("trying to createTrail");
     try {
         console.log(req.body);
         const trail = await Trail.create(req.body);
@@ -24,19 +25,19 @@ async function newTrail(req, res) {
     res.render('trails/new', {title: 'Add Trail', errorMsg: '', title: "Trails"});
 }
 
-// async function create(req, res) {
-//     for (let key in req.body) {
-//         if (req.body[key] === '') delete req.body[key];
-//     }
-//     try {
-//         const review = await Review.create(req.body);
-//         trail.reviews.push(review._id);
-//         res.redirect(`/trails/${trail._id}`);
-//     } catch (err) {
-//         console.log(err);
-//         res.render(`/trails/${trail._id}`, { errorMsg: err.message });
-//     }
-// }
+async function create(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    try {
+        const review = await Review.create(req.body);
+        trail.reviews.push(review._id);
+        res.redirect(`/trails/${trail._id}`);
+    } catch (err) {
+        console.log(err);
+        res.render(`/trails/${trail._id}`, { errorMsg: err.message });
+    }
+}
 
 
 

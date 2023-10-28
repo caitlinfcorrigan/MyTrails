@@ -15,8 +15,7 @@ const trailSchema = new Schema({
     },
     zip: {
         type: Number,
-        min: 5,
-        max: 5
+        max: 99999
     },
     reviews: [{
         type: Schema.Types.ObjectId,
