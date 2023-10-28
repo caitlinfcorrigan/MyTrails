@@ -42,7 +42,8 @@ async function create(req, res) {
 
 
 async function show(req, res) {
-    const trail = await Trail.findById(req.params.id).populate('review');
+    const trail = await Trail.findById(req.params.id);
+    console.log(trail);
     // Add code to calculate average review and pass into res.render
     res.render('trails/show', { title: `${trail.name}'s Reviews`, trail});
 }

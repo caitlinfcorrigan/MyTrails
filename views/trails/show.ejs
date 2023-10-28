@@ -1,14 +1,13 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
 <section id="show-trail">
     <div>Trail Name:</div>
     <div><%= trail.name %></div>
     <div>Distance:</div>
-    <div><%= trail.distance %></div>
+    <div><%= trail.distance %> miles</div>
     <div>Address:</div>
     <div><%= trail.streetAddress%></div>
-    <div><%= trail.city%>,<%= trail.state%> <%= trail.zip%></div>
+    <div><%= trail.city%>, <%= trail.state%> <%= trail.zip%></div>
 </section>
 
 <h2>Reviews</h2>

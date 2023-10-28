@@ -1,18 +1,17 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
 <table>
     <thead>
         <tr>
             <th>Trail</th>
-            <th>Length</th>
+            <th>Dist (mi)</th>
             <th>Average<br>Rating</th>
         </tr>
     </thead>
     <tbody>
         <% trails.forEach(function(t) { %>
             <tr>
-                <td><a href="/trails/<%= t.name %>"><%= t.name %></a></td>
+                <td><a href="/trails/<%= t._id %>"><%= t.name %></a></td>
                 <td><%= t.distance %></td>
                 <td>[Placeholder Rating]</td>
             </tr>
