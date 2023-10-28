@@ -1,6 +1,4 @@
-<%- include('./partials/header') %>
-
-<h1><%= title %></h1>
+<%- include('../partials/header') %>
 
 <% if (currUser.reviews.length) { %>
     <table>
@@ -16,10 +14,10 @@
         <tbody>
             <% currUser.reviews.forEach(function(r) { %>
                 <tr>
-                    <td><%= r.trail%></td>
-                    <td><%= r.timestamp.toLocaleDateString()></td>
-                    <td><%= r.rating%></td>
-                    <td><%= r.reviewText%></td>
+                    <td><%= r.trail %></td>
+                    <td><%= r.timestamp.toLocaleDateString() %></td>
+                    <td><%= r.rating %></td>
+                    <td><%= r.reviewText %></td>
                 </tr>
             <% }) %>
         </tbody>
@@ -28,4 +26,4 @@
     <h5>No reviews yet</h5>
 <% } %>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>

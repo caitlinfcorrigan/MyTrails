@@ -16,6 +16,7 @@ function update(req, res) {
 }
 
 async function index(req, res) {
-    const currUser = await User.findById(res.locals.user);
-    res.render('reviews/index', { title: 'My Reviews'}, currUser)
+    const currUser = res.locals.user;
+    console.log(currUser)
+    res.render('reviews/index', { title: 'My Reviews', currUser})
 }

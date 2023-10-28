@@ -25,6 +25,6 @@ const trailSchema = new Schema({
 },
 {
     timestamps: true
-})
+});
 
-module.exports = mongoose.model('trail', trailSchema)
+module.exports = mongoose.model('Trail', trailSchema)

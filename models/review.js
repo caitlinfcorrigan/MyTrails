@@ -12,4 +12,4 @@ reviewSchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('review', reviewSchema);
+module.exports = mongoose.model('Review', reviewSchema);
