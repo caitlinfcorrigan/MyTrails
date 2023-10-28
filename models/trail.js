@@ -19,7 +19,7 @@ const trailSchema = new Schema({
     },
     reviews: [{
         type: Schema.Types.ObjectId,
-        ref: 'reviewSchema'
+        ref: 'Review'
     }]
 },
 {

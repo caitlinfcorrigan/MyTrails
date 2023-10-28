@@ -31,6 +31,7 @@ async function create(req, res) {
     }
     try {
         const review = await Review.create(req.body);
+        const trail = await Trail.findById(req.params.id);
         trail.reviews.push(review._id);
         res.redirect(`/trails/${trail._id}`);
     } catch (err) {
@@ -39,10 +40,9 @@ async function create(req, res) {
     }
 }
 
-
-
 async function show(req, res) {
-    const trail = await Trail.findById(req.params.id);
+    // Fails when .populate('review') is added & no reviews exist
+    const trail = await Trail.findById(req.params.id).populate('reviews');
     console.log(trail);
     // Add code to calculate average review and pass into res.render
     res.render('trails/show', { title: `${trail.name}'s Reviews`, trail});

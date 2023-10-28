@@ -9,6 +9,23 @@
     <div><%= trail.streetAddress%></div>
     <div><%= trail.city%>, <%= trail.state%> <%= trail.zip%></div>
 </section>
+<% if (user) { %>
+    <h2>Add Review</h2>
+    <form id="add-trail-review" method="POST" action="/trails/<%= trail._id %>" >
+        <label>Review: </label>
+        <textarea name="reviewText"></textarea>
+        <label>Rating: </label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+        </select>
+        <input type="submit" value="Submit Review">
+    </form>
+<% } %>
+
 
 <h2>Reviews</h2>
 <% if (trail.reviews.length) { %>
@@ -22,7 +39,7 @@
             </tr>
         </thead>
         <tbody>
-            <% trails.reviews.forEach(function (r) { %>
+            <% trail.reviews.forEach(function (r) { %>
                 <tr>
                     <!-- Need to figure out how to pull user -->
                     <td><%= r.reviewText %></td>
