@@ -6,6 +6,9 @@ const reviewsCtrl = require('../controllers/reviews');
 // GET /reviews -- User views My Reviews
 router.get('/', reviewsCtrl.index);
 
+// POST /reviews
+router.post('/', trailsCtrl.create);
+
 // PUT /reviews/:id  -- User modifies their review
 router.put('/:id', reviewsCtrl.update);
 

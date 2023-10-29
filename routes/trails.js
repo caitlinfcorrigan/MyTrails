@@ -8,13 +8,10 @@ router.get('/', trailsCtrl.index);
 // GET /trails/new
 router.get('/new', trailsCtrl.new);
 
-// POST /trails/new
-router.post('/new', trailsCtrl.createTrail);
+// POST /trails
+router.post('/', trailsCtrl.create);
 
 // GET /trails/:id
 router.get('/:id', trailsCtrl.show);
-
-// POST /trails/:id
-router.post('/:id', trailsCtrl.create);
 
 module.exports = router;

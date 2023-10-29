@@ -19,9 +19,11 @@ https://docs.mapbox.com/mapbox-gl-js/api/ - 50K calls/month free
 | GET | `/auth2callback` | READ | Returns `{ user }` | Select or create user in database |
 | GET | `/logout` | READ | Log out
 | GET | `/trails` | READ | Array of  `[{ trail }, { trail }]` | |
+| GET | `/trails/new` | READ | Form to create new `{ trail }` | |
+| POST | `/trails` | CREATE | Add a new `{ trail }` | |
 | GET | `/trails/:id` | READ | `{ trail }` | |
-| POST | `/trails/:id` | CREATE | Add a new `{ review }` | |
 | GET | `/reviews` | READ | Return `{ user }` | List of user's reviews|
+| POST | `/reviews` | CREATE | Add a new `{ review }` | |
 | PUT | `/reviews` | UPDATE | Modifies a `{ review }` the user wrote|  |
 | DELETE | `/reviews` | DESTROY | Deletes a `{ review }` the user wrote| |
 
