@@ -9,7 +9,6 @@ module.exports = {
 }
 
 async function create(req, res) {
-    console.log("trying to createTrail");
     try {
         const trail = await Trail.create(req.body);
         // Redirect still not working - trail created
@@ -26,10 +25,10 @@ async function newTrail(req, res) {
 
 async function show(req, res) {
     // Fails when .populate('review') is added & no reviews exist
-    const trail = await Trail.findById(req.params.id).populate('reviews');
-    console.log(trail);
+    const trail = await Trail.findById(req.params.id);
+    const reviews = await Review.find({ trail: trail}).exec();
     // Add code to calculate average review and pass into res.render
-    res.render('trails/show', { title: `${trail.name}'s Reviews`, trail});
+    res.render('trails/show', { title: `${trail.name}'s Reviews`, trail, reviews});
 }
 
 async function index(req, res) {

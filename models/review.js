@@ -12,11 +12,14 @@ reviewSchema = new Schema({
         ref: 'User',
         required: true
     },
+    userName: String,
+    userAvatar: String,
     trail: {
         type: Schema.Types.ObjectId,
         ref: 'Trail',
         required: true
-    }
+    },
+    trailName: String
 },
 {
     timestamps: true

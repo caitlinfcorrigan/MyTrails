@@ -7,7 +7,7 @@ const reviewsCtrl = require('../controllers/reviews');
 router.get('/', reviewsCtrl.index);
 
 // POST /reviews
-router.post('/', trailsCtrl.create);
+router.post('/', reviewsCtrl.create);
 
 // PUT /reviews/:id  -- User modifies their review
 router.put('/:id', reviewsCtrl.update);

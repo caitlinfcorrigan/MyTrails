@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Trail = require('../models/trail');
 const Review = require('../models/review');
 
 module.exports = {
@@ -14,19 +15,17 @@ async function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     }
     try {
-        console.log(req);
+        // Add user info to review
+        req.body.user = req.user._id;
+        req.body.userName = req.user.name;
+        req.body.userAvatar = req.user.avatar;
         // Create the new review in db
-        const review = await Review.create(req.body);
-        // Assign the trail's OID to the .trail param - not pushing because it's not an array
-        review.trail = 
-        // Assign the user's OID to the .user param
-        review.user =
-        // Get the current trail for the redirect
-        const trail = await Trail.findById(req.params.id);
-        res.redirect(`/trails/${trail._id}`);
+        const newReview = await Review.create(req.body);
+        // Redirect back to trail - reviews, trail, and users
+        res.redirect(`/trails/${newReview.trail}`);
     } catch (err) {
         console.log(err);
-        res.render(`/trails/${trail._id}`, { errorMsg: err.message });
+        res.render(`/trails`, { errorMsg: err.message });
     }
 }
 
@@ -39,7 +38,6 @@ function update(req, res) {
 }
 
 async function index(req, res) {
-    const currUser = res.locals.user;
-    console.log(currUser)
-    res.render('reviews/index', { title: 'My Reviews', currUser})
+    const userReviews = await Review.find({ user: res.locals.user}).exec();
+    res.render('reviews/index', { title: 'My Reviews', userReviews});
 }

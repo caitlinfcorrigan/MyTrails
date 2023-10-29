@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<% if (currUser.reviews.length) { %>
+<% if (userReviews) { %>
     <table>
         <thead>
             <tr>
@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            <% currUser.reviews.forEach(function(r) { %>
+            <% userReviews.forEach(function(r) { %>
                 <tr>
-                    <td><%= r.trail %></td>
+                    <td><%= r.trailName %></td>
                     <td><%= r.updatedAt %></td>
                     <td><%= r.rating %></td>
                     <td><%= r.reviewText %></td>

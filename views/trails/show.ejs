@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
 
 <section id="show-trail">
-    <div>Trail Name:</div>
-    <div><%= trail.name %></div>
-    <div>Distance:</div>
-    <div><%= trail.distance %> miles</div>
+    <div>Trail Name: <%= trail.name %></div>
+    <div>Distance: <%= trail.distance %> miles</div>
     <div>Address:</div>
     <div><%= trail.streetAddress%></div>
     <div><%= trail.city%>, <%= trail.state%> <%= trail.zip%></div>
 </section>
 <% if (user) { %>
     <h2>Add Review</h2>
-    <form id="add-trail-review" method="POST" action="/trails/<%= trail._id %>" >
+    <form id="add-trail-review" method="POST" action="/reviews" >
+        <input type="hidden" name="trail" value="<%= trail._id %>">
+        <input type="hidden" name="trailName" value="<%= trail.name %>">
         <label>Review: </label>
         <textarea name="reviewText"></textarea>
         <label>Rating: </label>
@@ -26,9 +26,8 @@
     </form>
 <% } %>
 
-
 <h2>Reviews</h2>
-<% if (trail.reviews.length) { %>
+<% if (reviews.length) { %>
     <table>
         <thead>
             <tr>
@@ -39,9 +38,10 @@
             </tr>
         </thead>
         <tbody>
-            <% trail.reviews.forEach(function (r) { %>
+            <% reviews.forEach(function (r) { %>
                 <tr>
-                    <!-- Need to figure out how to pull user -->
+                    <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+                    <td><%= r.createdAt.toLocaleDateString() %></td>
                     <td><%= r.reviewText %></td>
                     <td><%= r.rating %></td>
                 </tr>
@@ -52,5 +52,9 @@
 <% } else { %>
     <h3>No reviews yet</h3>
 <% } %>
+
+
+
+
 
 <%- include('../partials/footer') %>
