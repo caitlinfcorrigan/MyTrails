@@ -6,7 +6,17 @@ reviewSchema = new Schema({
         type: Number,
         enum: [1, 2, 3, 4, 5]
     },
-    reviewText: String
+    reviewText: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    trail: {
+        type: Schema.Types.ObjectId,
+        ref: 'Trail',
+        required: true
+    }
 },
 {
     timestamps: true

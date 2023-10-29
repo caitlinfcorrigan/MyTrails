@@ -16,11 +16,7 @@ const trailSchema = new Schema({
     zip: {
         type: Number,
         max: 99999
-    },
-    reviews: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Review'
-    }]
+    }
 },
 {
     timestamps: true

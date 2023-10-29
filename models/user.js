@@ -8,11 +8,7 @@ const userSchema = new Schema({
     required: true
   },
   email: String,
-  avatar: String,
-  reviews: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Review'
-  }]
+  avatar: String
 }, {
   timestamps: true
 });

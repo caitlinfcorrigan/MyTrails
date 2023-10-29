@@ -15,7 +15,7 @@
             <% currUser.reviews.forEach(function(r) { %>
                 <tr>
                     <td><%= r.trail %></td>
-                    <td><%= r.timestamp.toLocaleDateString() %></td>
+                    <td><%= r.updatedAt %></td>
                     <td><%= r.rating %></td>
                     <td><%= r.reviewText %></td>
                 </tr>
