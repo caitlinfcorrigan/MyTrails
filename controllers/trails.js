@@ -12,8 +12,8 @@ module.exports = {
 async function createTrail(req, res) {
     console.log("trying to createTrail");
     try {
-        console.log(req.body);
         const trail = await Trail.create(req.body);
+        // Redirect still not working - trail created
         res.redirect(`/trails/${trail._id}`, {title: "Trails"});
     } catch (err) {
         console.log(err);
@@ -30,9 +30,15 @@ async function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     }
     try {
+        console.log(req);
+        // Create the new review in db
         const review = await Review.create(req.body);
+        // Assign the trail's OID to the .trail param - not pushing because it's not an array
+        review.trail = 
+        // Assign the user's OID to the .user param
+        review.user =
+        // Get the current trail for the redirect
         const trail = await Trail.findById(req.params.id);
-        trail.reviews.push(review._id);
         res.redirect(`/trails/${trail._id}`);
     } catch (err) {
         console.log(err);
