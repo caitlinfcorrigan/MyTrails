@@ -1,0 +1,12 @@
+body * {
+    font-family: 'Urbanist', sans-serif;
+    font: green;
+}
+
+h1, h2 {
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 48px;
+}
+h2{
+    font-size: 36px;
+}
