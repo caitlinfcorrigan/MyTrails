@@ -33,5 +33,22 @@ async function show(req, res) {
 
 async function index(req, res) {
     const trails = await Trail.find({});
+    trails.forEach(async function (t){
+        // Search reviews
+        const tReviews = await Review.find({ trail: t._id })
+        let rating = 0;
+        let count = 0;
+        tReviews.forEach(function(r) {
+            count++;
+            rating += r.rating;
+        });
+        console.log(`count ${count}`);
+        // Need to calculate locally?
+        if (count !== 0){
+            t.rating = rating/count;
+        } else {
+            t.rating = "None";
+        }
+    })
     res.render('trails/index', { title: 'All Trails', trails });
 }

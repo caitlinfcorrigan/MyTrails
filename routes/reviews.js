@@ -10,7 +10,7 @@ router.get('/', reviewsCtrl.index);
 router.get('/:id/edit', reviewsCtrl.edit);
 
 // POST /reviews
-router.post('/:id', reviewsCtrl.create);
+router.post('/', reviewsCtrl.create);
 
 // PUT /reviews/:id  -- User modifies their review
 router.put('/:id', reviewsCtrl.update);
