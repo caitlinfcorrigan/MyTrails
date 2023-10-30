@@ -4,6 +4,7 @@ const Review = require('../models/review');
 
 module.exports = {
     index,
+    edit,
     update,
     delete: deleteReview,
     create
@@ -15,6 +16,7 @@ async function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     }
     try {
+        // Form passes the trail id and name using hidden inputs
         // Add user info to review
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
@@ -29,12 +31,29 @@ async function create(req, res) {
     }
 }
 
-function deleteReview(req, res) {
-    console.log("deleteReview placeholder")
+async function deleteReview(req, res) {
+    try {
+        await Review.deleteOne({_id: req.params.id});
+    } catch (e){
+        console.log(e.message);
+    }
+    res.redirect('/reviews');
 }
 
-function update(req, res) {
-    console.log("update review placeholder");
+async function update(req, res) {
+    console.log(req.body)
+    const r = await Review.findById(req.params.id);
+    try {
+        await Review.findOneAndUpdate(r, {reviewText: req.body.text});
+    } catch (e) {
+        console.log(e.message);
+    }
+    res.redirect(`/reviews`);
+}
+
+async function edit(req, res) {
+    const r = await Review.findById(req.params.id);
+    res.render('reviews/edit', {title: `Edit Review for ${r.trailName}`, review: r} );
 }
 
 async function index(req, res) {

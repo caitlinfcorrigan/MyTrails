@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+    <!-- Add Edit/Modify for user's own reviews -->
+    <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+        <input name="text" value="<%= review.reviewText %>"><br><br>
+        <button type="submit">Edit Review</button>
+    </form>
+
+<%- include('../partials/footer') %>

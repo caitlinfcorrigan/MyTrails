@@ -18,8 +18,16 @@
                     <td><%= r.updatedAt %></td>
                     <td><%= r.rating %></td>
                     <td><%= r.reviewText %></td>
+                    <td>
+                        <a href="/reviews/<%= r._id %>/edit">Edit</a>
+                    </td>
+                    <td>
+                        <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    </td>
                 </tr>
-            <% }) %>
+            <% }); %>
         </tbody>
     </table>
 <% } else { %>
