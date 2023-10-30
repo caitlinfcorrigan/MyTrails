@@ -3,12 +3,16 @@
 
 
 <% if (!user) { %>
-	<p>please login to continue</p>
+	<p class="content">Login for full access to MyTrails.</p>
 <% } else { %>
 	<p>Welcome, <%= user.name %> <%= user.email %></p>
 	<% if (user.avatar) { %>
 		<img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
 	<% } %>
 <% } %>
+
+<h2 class="content">Find a trail using the map</h2>
+
+<h2 class="content"> Recently Added Trails</h2>
 
 <%- include('./partials/footer') %>
