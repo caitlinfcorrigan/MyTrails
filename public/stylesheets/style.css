@@ -22,7 +22,6 @@ body {
   }
 
 h1, h2, h3 {
-    font-family: 'Amatic SC', sans-serif;
     font-size: 48px;
 }
 h2{
@@ -59,6 +58,7 @@ h3 {
 }
 
 #appNav {
+    font-family: 'Amatic SC', sans-serif;
     grid-area: nav;
     display: flex;
     justify-content:space-evenly;

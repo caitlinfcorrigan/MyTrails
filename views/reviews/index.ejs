@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 
+<h2 class="content">My Reviews</h2>
 <% if (userReviews) { %>
-    <table>
+    <table class="content">
         <thead>
             <tr>
                 <th>Trail</th>
@@ -30,7 +31,7 @@
         </tbody>
     </table>
 <% } else { %>
-    <h5>No reviews yet</h5>
+    <h5 class="content">No reviews yet</h5>
 <% } %>
 
 <%- include('../partials/footer') %>
