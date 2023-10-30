@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 
-<section id="show-trail">
-    <div>Trail Name: <%= trail.name %></div>
+<h2 class="content"><%= trail.name %></h2>
+
+<section class="content" id="show-trail">
     <div>Distance: <%= trail.distance %> miles</div>
     <div>Address:</div>
     <div><%= trail.streetAddress%></div>
     <div><%= trail.city%>, <%= trail.state%> <%= trail.zip%></div>
 </section>
 <% if (user) { %>
-    <h2>Add Review</h2>
+    <h2 class="content">Add Review</h2>
     <form id="add-trail-review" method="POST" action="/reviews" >
         <input type="hidden" name="trail" value="<%= trail._id %>">
         <input type="hidden" name="trailName" value="<%= trail.name %>">
@@ -26,9 +27,9 @@
     </form>
 <% } %>
 
-<h2>Reviews</h2>
+<h3 class="content" >Trail Reviews</h3>
 <% if (reviews.length) { %>
-    <table>
+    <table class="content">
         <thead>
             <tr>
                 <th>User</th>
@@ -50,7 +51,7 @@
         </tbody>
     </table>
 <% } else { %>
-    <h3>No reviews yet</h3>
+    <h3 class="content">No reviews yet</h3>
 <% } %>
 
 

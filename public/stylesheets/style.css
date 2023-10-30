@@ -1,12 +1,69 @@
-body * {
+* {
+    box-sizing: border-box;
     font-family: 'Urbanist', sans-serif;
-    font: green;
+
 }
 
-h1, h2 {
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+      "nav"
+      "title"
+      "main"
+  }
+  .content {
+    grid-area: main;
+    justify-content: flex-start;
+    padding: 20px;
+
+  }
+
+h1, h2, h3 {
     font-family: 'Amatic SC', sans-serif;
     font-size: 48px;
 }
 h2{
     font-size: 36px;
 }
+h3 {
+    font-size: 30px;
+}
+
+#appName, #appNav, #login {
+    width: 100%;
+    background-color: forestgreen;
+    color: gold;
+    padding: 10px;
+
+}
+#appName{
+    grid-area: title;
+    display: flex;
+    justify-content: flex-start;
+    text-shadow:
+     -1px -1px 0 goldenrod,  
+      1px -1px 0 goldenrod,
+      -1px 1px 0 goldenrod,
+       1px 1px 0 goldenrod;
+}
+
+#login {
+    grid-area: nav;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 0 20px 0 30px;
+}
+
+#appNav {
+    grid-area: nav;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    padding: 0 20px 0 30px;
+    font-size: 24px;
+}
+

@@ -9,22 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rajdhani:wght@500;700&family=Urbanist:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rajdhani:wght@500;700&family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
+  <nav id="login">
     <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
+      <a href="/logout">Log Out</a>
     <% } else { %>
-      <a href="/auth/google">LOG IN</a>
+      <a href="/auth/google">Log In</a>
     <% } %>
-    <a href="/">Home</a>
-    <a href="/trails">Trails</a>
-    <% if (user) { %>
-      <a href="/reviews">My Reviews</a>
-    <% } %>
-
   </nav>
   <main>
-    <h1>My Trails</h1>
+    <h1 id="appName">My Trails</h1>
+    <nav id="appNav">
+      <a href="/">Home</a>
+      <a href="/trails">Trails</a>
+      <% if (user) { %>
+        <a href="/reviews">My Reviews</a>
+      <% } %>
+    </nav>
