@@ -1,16 +1,10 @@
 <%- include('./partials/header') %>
 
-
-
 <% if (!user) { %>
 	<p class="content">Login for full access to MyTrails.</p>
 <% } else { %>
 	<p>Welcome, <%= user.name %> <%= user.email %></p>
-	<% if (user.avatar) { %>
-		<img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
-	<% } %>
 <% } %>
-
 <h2 class="content">Find a trail using the map</h2>
 <!-- Add the map div and the script -->
 <div id='map'></div>
@@ -20,8 +14,8 @@
 	container: 'map', // container ID
 		// Choose from Mapbox or make your own
 		style: 'mapbox://styles/mapbox/streets-v12', // style URL
-		center: [37, 122], // starting position [lng, lat]
-		zoom: 9 // starting zoom
+		center: [-122.3 , 37.75], // starting position [lng, lat]
+		zoom: 8 // starting zoom
 		});
 </script>
 
