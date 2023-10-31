@@ -3,20 +3,14 @@
 <h3 class="content">Add a new trail</h3>
 
 <form class="content" id="new-trail" action="/trails/new" method="POST">
+    <label>Park: </label><br><br>
+        <select name="park">
+            <%- parks.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
+        </select><br><br>
     <label>Trail name: </label>
     <input type="text" name="name"><br><br>
     <label>Distance (miles): </label>
-    <input type="number" name="distance"><br><br>
-    <label>Street Address: </label>
-    <input type="text" name="streetAddress"><br><br>
-    <label>City: </label>
-    <input type="text" name="city"><br><br>
-    <label>State: </label>
-        <select name="state"><br><br>
-            <%- include('../partials/states') %>
-        </select><br><br>
-    <label>Zip: </label>
-    <input type="number" name="zip"><br><br>
+    <input type="number" step="any" name="distance"><br><br>
     <input type="submit" value="Add Trail">
 </form>
 

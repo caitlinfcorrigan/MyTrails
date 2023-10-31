@@ -2,7 +2,10 @@
 
 <h2 class="content"><%= title %></h2>
 
-<a class="content" href="/trails/new">Add a New Trail</a>
+<% if (user) { %>
+    <a class="content" href="/trails/new">Add a New Trail</a>
+<% } %>
+
 
 <table class="content">
     <thead>

@@ -5,7 +5,8 @@
 <% } else { %>
 	<p class="content">Welcome, <%= user.name %> <%= user.email %></p>
 <% } %>
-<h2 class="content">Find a trail using the map</h2>
+
+<h2 class="content">Find a park using the map</h2>
 <!-- Add the map div and the script -->
 <div class="content" id='map'></div>
 <script>
@@ -27,15 +28,6 @@
 	//Add map controls
 	map.addControl(new mapboxgl.NavigationControl());
 </script>
-
-<h2 class="content"> Recently Added Parks</h2>
-<ul class="content">
-	<% parks.forEach(function(p) { %>
-		<a href="/parks/<%= p._id %>"><%= p.name %></a>
-		<%= p.location.coordinates %>
-	<% }); %>
-</ul>
-
 
 
 <%- include('./partials/footer') %>

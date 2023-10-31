@@ -9,7 +9,7 @@ router.get('/', trailsCtrl.index);
 router.get('/new', trailsCtrl.new);
 
 // POST /trails
-router.post('/', trailsCtrl.create);
+router.post('/new', trailsCtrl.create);
 
 // GET /trails/:id
 router.get('/:id', trailsCtrl.show);

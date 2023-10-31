@@ -1,8 +1,11 @@
 <%- include('../partials/header') %>
 
-<h3 class="content">Existing Parks</h3>
+<h2 class="content">MyTrails Community Parks</h2>
 <p class="content">Click on a park to view its trails.</p>
-<p class="content">Add a new park <a href="/parks/new">here</a>.</p>
+<% if (user) { %>
+    <p class="content">Add a new park <a href="/parks/new">here</a>.</p>
+<% } %>
+
 
 <table class="content">
     <thead>
@@ -19,7 +22,7 @@
         <% parks.forEach(function(p) { %>
             <tr>
                 <td><a href="/parks/<%= p._id %>"><%= p.name %></a></td>
-                <td><%= p.entranceFee %></td>
+                <td>$<%= p.entranceFee %></td>
                 <td><%= p.streetAddress %></td>
                 <td><%= p.city %></td>
                 <td><%= p.state %></td>

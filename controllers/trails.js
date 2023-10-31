@@ -1,3 +1,4 @@
+const Park = require('../models/park');
 const Trail = require('../models/trail');
 const Review = require('../models/review');
 
@@ -9,19 +10,25 @@ module.exports = {
 }
 
 async function create(req, res) {
+    console.log(req.body)
+    const park = await Park.findById(req.body.park)
+    console.log(park)
+    park.trails.push(req.body)
     try {
-        const trail = await Trail.create(req.body);
-        // Redirect still not working - trail created
-        res.redirect(`/trails/${trail._id}`, {title: "Trails"});
+        await park.save();
+        // ADD await TO RETRIEVE ALL TRAILS
+        res.redirect(`/trails/${trail._id}`);
     } catch (err) {
+        const parks = await Park.find({});
         console.log(err);
-        res.render('trails/new', { errorMsg: err.message, title: "New Trails" });
+        res.render('trails', { errorMsg: err.message, title: "All Trails", parks});
     }
 }
 
-// What's going on here?
+
 async function newTrail(req, res) {
-    res.render('trails/new', {title: 'Add Trail', errorMsg: '', title: "Trails"});
+    const parks = await Park.find({});
+    res.render('trails/new', {title: 'Add Trail', errorMsg: '', parks });
 }
 
 async function show(req, res) {
