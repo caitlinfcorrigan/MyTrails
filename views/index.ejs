@@ -3,11 +3,11 @@
 <% if (!user) { %>
 	<p class="content">Login for full access to MyTrails.</p>
 <% } else { %>
-	<p>Welcome, <%= user.name %> <%= user.email %></p>
+	<p class="content">Welcome, <%= user.name %> <%= user.email %></p>
 <% } %>
 <h2 class="content">Find a trail using the map</h2>
 <!-- Add the map div and the script -->
-<div id='map'></div>
+<div class="content" id='map'></div>
 <script>
 	mapboxgl.accessToken = '<%= mapkey %>';
 	const map = new mapboxgl.Map({
@@ -17,8 +17,27 @@
 		center: [-122.3 , 37.75], // starting position [lng, lat]
 		zoom: 8 // starting zoom
 		});
+	// Create marker
+	// const marker1 = new mapboxgl.Marker()
+	// 	.setLngLat([ -122.57, 37.89])
+	// 	.addTo(map);
+	let i = 0;
+	<% parks.forEach(function(p) { %>
+		new mapboxgl.Marker()
+			.setLngLat([<%= p.location.coordinates %>])
+			.addTo(map);
+			i++;
+	<% }); %>
 </script>
 
-<h2 class="content"> Recently Added Trails</h2>
+<h2 class="content"> Recently Added Parks</h2>
+<ul class="content">
+	<% parks.forEach(function(p) { %>
+		<a href="/parks/<%= p._id %>"><%= p.name %></a>
+		<%= p.location.coordinates %>
+	<% }); %>
+</ul>
+
+
 
 <%- include('./partials/footer') %>
