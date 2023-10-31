@@ -1,14 +1,41 @@
 <%- include('./partials/header') %>
 
-
-
 <% if (!user) { %>
-	<p>please login to continue</p>
+	<p class="content">Login for full access to MyTrails.</p>
 <% } else { %>
-	<p>Welcome, <%= user.name %> <%= user.email %></p>
-	<% if (user.avatar) { %>
-		<img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
-	<% } %>
+	<p class="content">Welcome, <%= user.name %> <%= user.email %></p>
 <% } %>
+<h2 class="content">Find a trail using the map</h2>
+<!-- Add the map div and the script -->
+<div class="content" id='map'></div>
+<script>
+	mapboxgl.accessToken = '<%= mapkey %>';
+	const map = new mapboxgl.Map({
+	container: 'map', // container ID
+		// Choose from Mapbox or make your own
+		style: 'mapbox://styles/mapbox/streets-v12', // style URL
+		center: [-122.3 , 37.75], // starting position [lng, lat]
+		zoom: 8 // starting zoom
+		});
+
+	<% parks.forEach(function(p) { %>
+		new mapboxgl.Marker()
+			.setLngLat([<%= p.location.coordinates %>])
+			.addTo(map);
+	<% }); %>
+	
+	//Add map controls
+	map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+<h2 class="content"> Recently Added Parks</h2>
+<ul class="content">
+	<% parks.forEach(function(p) { %>
+		<a href="/parks/<%= p._id %>"><%= p.name %></a>
+		<%= p.location.coordinates %>
+	<% }); %>
+</ul>
+
+
 
 <%- include('./partials/footer') %>

@@ -1,9 +1,11 @@
+const Park = require('../models/park')
+
 module.exports = {
   index
 }
 
-function index(req, res) {
-  res.render("index", {
-    title: "MyTrails"
-  });
+async function index(req, res) {
+  const parks = await Park.find({});
+  // console.log(geoData)
+  res.render("index", { title: "MyTrails", mapkey: process.env.MAPBOX_TOKEN, parks });
 }
