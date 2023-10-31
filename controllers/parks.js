@@ -11,6 +11,11 @@ module.exports = {
 
 async function create(req, res) {
     // Need to put long/lat into an array and pass as location
+    const geoLocation = [req.body.longitude, req.body.latitude]
+    delete req.body.longitude;
+    delete req.body.latitude;
+    req.body.location = { type: 'Point', coordinates : geoLocation };
+    console.log(req.body)
     try {
         const park = await Park.create(req.body);
         res.redirect(`parks`);
