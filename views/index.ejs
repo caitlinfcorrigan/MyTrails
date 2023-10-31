@@ -17,17 +17,15 @@
 		center: [-122.3 , 37.75], // starting position [lng, lat]
 		zoom: 8 // starting zoom
 		});
-	// Create marker
-	// const marker1 = new mapboxgl.Marker()
-	// 	.setLngLat([ -122.57, 37.89])
-	// 	.addTo(map);
-	let i = 0;
+
 	<% parks.forEach(function(p) { %>
 		new mapboxgl.Marker()
 			.setLngLat([<%= p.location.coordinates %>])
 			.addTo(map);
-			i++;
 	<% }); %>
+	
+	//Add map controls
+	map.addControl(new mapboxgl.NavigationControl());
 </script>
 
 <h2 class="content"> Recently Added Parks</h2>
