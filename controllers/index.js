@@ -3,7 +3,5 @@ module.exports = {
 }
 
 function index(req, res) {
-  res.render("index", {
-    title: "MyTrails"
-  });
+  res.render("index", { title: "MyTrails", mapkey: process.env.MAPBOX_TOKEN });
 }

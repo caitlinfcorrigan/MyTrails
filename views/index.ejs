@@ -12,6 +12,18 @@
 <% } %>
 
 <h2 class="content">Find a trail using the map</h2>
+<!-- Add the map div and the script -->
+<div id='map'></div>
+<script>
+	mapboxgl.accessToken = '<%= mapkey %>';
+	const map = new mapboxgl.Map({
+	container: 'map', // container ID
+		// Choose from Mapbox or make your own
+		style: 'mapbox://styles/mapbox/streets-v12', // style URL
+		center: [37, 122], // starting position [lng, lat]
+		zoom: 9 // starting zoom
+		});
+</script>
 
 <h2 class="content"> Recently Added Trails</h2>
 

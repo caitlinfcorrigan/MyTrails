@@ -7,8 +7,15 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 
+
+
 require('dotenv').config();
 require('./config/database');
+
+// Require mapbox for maps
+const mapboxgl = require('mapbox-gl');
+// Configure mapbox
+mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 
 require('./config/passport');
 
