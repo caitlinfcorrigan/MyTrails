@@ -20,6 +20,7 @@ mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const parksRouter = require('./routes/parks');
 const trailsRouter = require('./routes/trails');
 const reviewsRouter = require('./routes/reviews');
 
@@ -52,6 +53,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/parks', parksRouter);
 app.use('/trails', trailsRouter);
 app.use('/reviews', reviewsRouter);
 

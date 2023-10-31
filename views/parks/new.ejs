@@ -1,12 +1,11 @@
 <%- include('../partials/header') %>
 
-<h3 class="content">Add a new trail</h3>
-
-<form class="content" id="new-trail" action="/trails/new" method="POST">
-    <label>Trail name: </label>
+<h3 class="content">Add Location</h3>
+<form class="content" id="new-address" action="/parks" method="POST">
+    <label>Park name: (Required)</label>
     <input type="text" name="name"><br><br>
-    <label>Distance (miles): </label>
-    <input type="number" name="distance"><br><br>
+    <label>Entrance fee: </label>
+    <input type="number" name="entranceFee"><br><br>
     <label>Street Address: </label>
     <input type="text" name="streetAddress"><br><br>
     <label>City: </label>
@@ -17,7 +16,12 @@
         </select><br><br>
     <label>Zip: </label>
     <input type="number" name="zip"><br><br>
-    <input type="submit" value="Add Trail">
+    <label>Longitude: (Required)</label>
+    <input type="number" step="any"  name="longitude">
+    <label>Latitude: (Required)</label>
+    <input type="number" step="any" name="latitude">   
+    <input type="submit" value="Add Park">
 </form>
+
 
 <%- include('../partials/footer') %>

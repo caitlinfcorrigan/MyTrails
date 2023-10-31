@@ -19,6 +19,7 @@ async function create(req, res) {
     }
 }
 
+// What's going on here?
 async function newTrail(req, res) {
     res.render('trails/new', {title: 'Add Trail', errorMsg: '', title: "Trails"});
 }
