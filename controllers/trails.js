@@ -25,30 +25,32 @@ async function create(req, res) {
     }
 }
 
-
 async function newTrail(req, res) {
     const parks = await Park.find({});
     res.render('trails/new', {title: 'Add Trail', errorMsg: '', parks });
 }
 
 async function show(req, res) {
-    // Fails when .populate('review') is added & no reviews exist
-    const trail = await Trail.findById(req.params.id);
-    const reviews = await Review.find({ trail: trail}).exec();
-    // Add code to calculate average review and pass into res.render
-    res.render('trails/show', { title: `${trail.name}'s Reviews`, trail, reviews});
+    // const trail = await Trail.findById(req.params.id);
+    // const reviews = await Review.find({ trail: trail}).exec();
+    
+    // Find the trail's park
+    const trail = Park.find({trails: req.params.id})
+    console.log(trail.name)
+    // Find the reviews
+
+    res.render('trails/show', { title: `${trail.name}'s Reviews`, park, reviews});
 }
 
 async function index(req, res) {
+    // How can you limit the number of parks or trails?
     const parks = await Park.find({})
     const trailsList = [];
-
     parks.forEach(async function (p){
-        // console.log(p.trails)
+        // Push the array of park's trails
         trailsList.push(p.trails)
     })
+    // Flatten the array of trails for looping on the page
     const trails= trailsList.flat();
-    console.log(trails)
-
     res.render('trails/index', { title: 'All Trails', trails });
 }

@@ -10,10 +10,8 @@ module.exports = {
     show
 }
 
-// HTML throws "cannot read properties of undefined (length)"
 async function show(req, res) {
-    console.log("Show parks/:id placeholder")
-    const park = Park.findById(req.params.id)
+    const park = await Park.findById(req.params.id)
     res.render('parks/show', {title: `${park.name} Trails`, park});
 }
 
