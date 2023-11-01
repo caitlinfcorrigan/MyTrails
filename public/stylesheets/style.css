@@ -98,3 +98,8 @@ a:visited {
     color: goldenrod;
     text-decoration: none;
 }
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Urbanist', Arial, Helvetica, sans-serif;
+}

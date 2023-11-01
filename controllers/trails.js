@@ -35,8 +35,8 @@ async function show(req, res) {
     // Find the reviews
     // const reviews = Review.trail.id(req.params.id)
     const reviews = await Review.find({trail: req.params.id})
-
-    res.render('trails/show', { title: `${park.name}'s Reviews`, park, trail, reviews});
+    // Title in Tab renders as Undefined; works on page
+    res.render('trails/show', { title: `${trail.name}'s Reviews`, park, trail, reviews});
 }
 
 async function index(req, res) {
