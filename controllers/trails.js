@@ -41,12 +41,14 @@ async function show(req, res) {
 
 async function index(req, res) {
     const parks = await Park.find({})
-    // console.log(trails)
-    let trails = []
-    parks.forEach(async function (p){
-        trails.push(await p.populate("trails"))
+    const trailsList = [];
 
+    parks.forEach(async function (p){
+        // console.log(p.trails)
+        trailsList.push(p.trails)
     })
+    const trails= trailsList.flat();
     console.log(trails)
+
     res.render('trails/index', { title: 'All Trails', trails });
 }
