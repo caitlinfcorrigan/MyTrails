@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const Park = require('../models/park')
-const Trail = require('../models/trail');
 const Review = require('../models/review');
 
 module.exports = {

@@ -1,5 +1,4 @@
 const Park = require('../models/park');
-const Trail = require('../models/trail');
 const Review = require('../models/review');
 
 module.exports = {
@@ -10,11 +9,10 @@ module.exports = {
 }
 
 async function create(req, res) {
-    const park = await Park.findById(req.body.park)
-    park.trails.push(req.body)
+    const park = await Park.findById(req.body.park);
+    park.trails.push(req.body);
     try {
         await park.save();
-        // ADD await TO RETRIEVE ALL TRAILS
         res.redirect(`/trails/${trail._id}`);
     } catch (err) {
         const parks = await Park.find({});
@@ -28,24 +26,15 @@ async function newTrail(req, res) {
     res.render('trails/new', {title: 'Add Trail', errorMsg: '', parks });
 }
 
-// Not working -- WIP
-async function show(req, res) {
-    console.log(req.params.id)
 
+async function show(req, res) {
     let park = await Park.find({
         trails: { $elemMatch: {_id: req.params.id}}
     })
-
-    // Remove park out of array
-    console.log(park)
     const trail = park[0].trails.id(req.params.id)
-
-    console.log(trail)
-
-    // const trail 
     // Find the reviews
     // const reviews = Review.trail.id(req.params.id)
-    const reviews = []
+    const reviews = await Review.find({trail: req.params.id})
 
     res.render('trails/show', { title: `${park.name}'s Reviews`, park, trail, reviews});
 }
