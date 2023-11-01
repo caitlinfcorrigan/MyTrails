@@ -35,8 +35,7 @@ async function show(req, res) {
     let park = await Park.find({
         trails: { $elemMatch: {_id: req.params.id}}
     })
-    
-    // park = Object.entries(park)
+
     // Remove park out of array
     console.log(park)
     const trail = park[0].trails.id(req.params.id)
@@ -45,7 +44,8 @@ async function show(req, res) {
 
     // const trail 
     // Find the reviews
-    const reviews = [];
+    // const reviews = Review.trail.id(req.params.id)
+    const reviews = []
 
     res.render('trails/show', { title: `${park.name}'s Reviews`, park, trail, reviews});
 }

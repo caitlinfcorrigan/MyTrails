@@ -10,7 +10,7 @@
 </section>
 <% if (user) { %>
     <h2 class="content">Add Review</h2>
-    <form id="add-trail-review" method="POST" action="/reviews" >
+    <form class="content" id="add-trail-review" method="POST" action="/reviews" >
         <input type="hidden" name="trail" value="<%= trail._id %>">
         <input type="hidden" name="trailName" value="<%= trail.name %>">
         <label>Review: </label>

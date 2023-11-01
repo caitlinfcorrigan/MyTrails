@@ -16,7 +16,7 @@ reviewSchema = new Schema({
     userAvatar: String,
     trail: {
         type: Schema.Types.ObjectId,
-        ref: 'Trail',
+        ref: 'Park',
         required: true
     },
     trailName: String
