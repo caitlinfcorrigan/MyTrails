@@ -21,7 +21,6 @@ async function create(req, res) {
     delete req.body.longitude;
     delete req.body.latitude;
     req.body.location = { type: 'Point', coordinates : geoLocation };
-    console.log(req.body)
     try {
         const park = await Park.create(req.body);
         res.redirect(`parks`);

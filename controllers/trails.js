@@ -10,9 +10,7 @@ module.exports = {
 }
 
 async function create(req, res) {
-    console.log(req.body)
     const park = await Park.findById(req.body.park)
-    console.log(park)
     park.trails.push(req.body)
     try {
         await park.save();
@@ -30,20 +28,28 @@ async function newTrail(req, res) {
     res.render('trails/new', {title: 'Add Trail', errorMsg: '', parks });
 }
 
+// Not working -- WIP
 async function show(req, res) {
-    // const trail = await Trail.findById(req.params.id);
-    // const reviews = await Review.find({ trail: trail}).exec();
-    
-    // Find the trail's park
-    const trail = Park.find({trails: req.params.id})
-    console.log(trail.name)
-    // Find the reviews
+    console.log(req.params.id)
 
-    res.render('trails/show', { title: `${trail.name}'s Reviews`, park, reviews});
+    const park = await Park.find({
+        trails: { $elemMatch: {_id: req.params.id}}
+    })
+    // Remove park out of array
+    console.log(park)
+    const trail = park[0].trails.id(req.params.id)
+    
+    console.log(trail)
+
+    // const trail 
+    // Find the reviews
+    const reviews = [];
+
+    res.render('trails/show', { title: `${park.name}'s Reviews`, park, trail, reviews});
 }
 
 async function index(req, res) {
-    // How can you limit the number of parks or trails?
+    // How can you limit the number of parks and trails?
     const parks = await Park.find({})
     const trailsList = [];
     parks.forEach(async function (p){
