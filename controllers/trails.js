@@ -32,13 +32,15 @@ async function newTrail(req, res) {
 async function show(req, res) {
     console.log(req.params.id)
 
-    const park = await Park.find({
+    let park = await Park.find({
         trails: { $elemMatch: {_id: req.params.id}}
     })
+    
+    // park = Object.entries(park)
     // Remove park out of array
     console.log(park)
     const trail = park[0].trails.id(req.params.id)
-    
+
     console.log(trail)
 
     // const trail 
