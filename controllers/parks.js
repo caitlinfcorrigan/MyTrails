@@ -6,7 +6,15 @@ const Review = require('../models/review');
 module.exports = {
     index,
     new: newPark,
-    create
+    create,
+    show
+}
+
+// HTML throws "cannot read properties of undefined (length)"
+async function show(req, res) {
+    console.log("Show parks/:id placeholder")
+    const park = Park.findById(req.params.id)
+    res.render('parks/show', {title: `${park.name} Trails`, park});
 }
 
 async function create(req, res) {

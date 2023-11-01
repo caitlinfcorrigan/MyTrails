@@ -11,5 +11,7 @@ router.post('/', parksCtrl.create);
 // GET /trails/new
 router.get('/new', parksCtrl.new);
 
+// GET /trails/:id
+router.get('/:id', parksCtrl.show);
 
 module.exports = router;

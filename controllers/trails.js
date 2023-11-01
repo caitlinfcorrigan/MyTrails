@@ -40,25 +40,13 @@ async function show(req, res) {
 }
 
 async function index(req, res) {
-    const trails = await Trail.find({});
-    const averages = {};
-    trails.forEach(async function (t){
-        const tReviews = await Review.find({ trail: t._id })
-        let rating = 0;
-        let count = 0;
-        tReviews.forEach(function(r) {
-            count++;
-            rating += r.rating;
-        });
-        let tRating = '';
-        if (count !== 0){
-            tRating = rating/count;
-        } else {
-            tRating = "None";
-        }
-        averages[t.id] = tRating;
-    });
-    // Why isn't averages printing or passing?
-    console.log(`average in loop ${averages}`)
-    res.render('trails/index', { title: 'All Trails', trails, averages });
+    const parks = await Park.find({})
+    // console.log(trails)
+    let trails = []
+    parks.forEach(async function (p){
+        trails.push(await p.populate("trails"))
+
+    })
+    console.log(trails)
+    res.render('trails/index', { title: 'All Trails', trails });
 }

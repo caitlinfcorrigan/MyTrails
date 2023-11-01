@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<h2 class="content"><%= park.name %></h2>
+
+<section class="content" id="show-trail">
+    <div>Address:</div>
+    <div><%= park.streetAddress%></div>
+    <div><%= park.city%>, <%= park.state%> <%= park.zip%></div>
+</section>
+
+<h3 class="content" >Trails</h3>
+<% if (park.trails.length) { %>
+    <table class="content">
+        <thead>
+            <tr>
+                <th>Trail</th>
+                <th>Distance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% park.trails.forEach(function (t) { %>
+                <tr>
+                    <td>
+                        <a href="/trails/<%= t._id %>"><%= t.name %></a>
+                    </td>
+                    <td><%= t.distance %></td>
+                </tr>
+            <% }); %>
+
+        </tbody>
+    </table>
+<% } else { %>
+    <h5 class="content">No reviews yet</h5>
+<% } %>
+
+
+
+
+
+<%- include('../partials/footer') %>
