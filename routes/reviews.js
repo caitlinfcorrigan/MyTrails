@@ -11,7 +11,7 @@ router.get('/', verifyUser, reviewsCtrl.index);
 router.get('/:id/edit', verifyUser, reviewsCtrl.edit);
 
 // POST /reviews
-// router.post('/', reviewsCtrl.create);
+router.post('/', reviewsCtrl.create);
 
 // PUT /reviews/:id  -- User modifies their review
 router.put('/:id', verifyUser, reviewsCtrl.update);

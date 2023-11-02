@@ -17,6 +17,7 @@ async function create(req, res) {
     try {
         // Form passes the trail id and name using hidden inputs
         console.log('trying to submit review')
+        console.log(req.user)
         // Add user info to review
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
