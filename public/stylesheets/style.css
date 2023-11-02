@@ -103,3 +103,10 @@ a:visited {
     max-width: 400px;
     font: 12px/20px 'Urbanist', Arial, Helvetica, sans-serif;
 }
+#marker {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    }

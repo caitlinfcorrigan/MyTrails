@@ -12,21 +12,31 @@
 <script>
 	mapboxgl.accessToken = '<%= mapkey %>';
 	const map = new mapboxgl.Map({
-	container: 'map', // container ID
-		// Choose from Mapbox or make your own
-		style: 'mapbox://styles/mapbox/streets-v12', // style URL
+		container: 'map', 
+		style: 'mapbox://styles/mapbox/streets-v12', // 
 		center: [-122.3 , 37.75], // starting position [lng, lat]
-		zoom: 8 // starting zoom
-		});
+		zoom: 8 
+	});
 
+		// https://docs.mapbox.com/help/tutorials/building-a-store-locator/
+
+		// https://docs.mapbox.com/mapbox-gl-js/example/set-popup/
 	<% parks.forEach(function(p) { %>
-		new mapboxgl.Marker()
+		const P<%= p._id %> = new mapboxgl.Popup({ offset: 25 }).setHTML('<a href="/parks/<%= p._id%>"><%= p.name %></a>');
+		const E<%= p._id %> = document.createElement('div');
+		E<%= p._id %>.id = 'marker';
+
+		new mapboxgl.Marker(E<%=p._id%>)
 			.setLngLat([<%= p.location.coordinates %>])
+			.setPopup(P<%= p._id %>)
 			.addTo(map);
+
 	<% }); %>
 	
-	//Add map controls
+	// Add map controls
 	map.addControl(new mapboxgl.NavigationControl());
+
+
 </script>
 
 
