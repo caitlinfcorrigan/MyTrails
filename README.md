@@ -54,7 +54,7 @@ Access the app here: [MyTrails](https://my-trails-app-d6518553f042.herokuapp.com
 - [x] AAU, I want to delete my reviews.
 
 ## MVP Goals
-* Users  login using Google OAuth.
+- [x] Users  login using Google OAuth.
 * Without logging in, guests can:
     - [x] View a list of trails
     - [x] View a trail's reviews
@@ -63,21 +63,21 @@ Access the app here: [MyTrails](https://my-trails-app-d6518553f042.herokuapp.com
     - [x] View a list of reviews they wrote
     - [x] Update a review they wrote
     - [x] Delete a review they wrote
-* When a guest attempts to access user-only resources (like writing a review), direct user to login.
-* "My Reviews" only displays in the navigation bar if a user is logged in.
+- [x] When a guest attempts to access user-only resources (like writing a review), direct user to login.
+- [x] "My Reviews" only displays in the navigation bar if a user is logged in.
 
 
 ## Stretch Goals (in order of priority)
 * Embed Mapbox in the `/` page
-    [x] Use API to display markers representing parks on the map
-    [x] Allow users to click a marker containing a clickable link to the park's page
+    - [x] Use API to display markers representing parks on the map
+    - [x] Allow users to click a marker containing a clickable link to the park's page
 * Update data model
-    [x] Create Parks collection, where the park document contains the address and location ([longitude,latitude])
-    [x] Embed Trails in park document (Name and Distance)
+    - [x] Create Parks collection, where the park document contains the address and location ([longitude,latitude])
+    - [x] Embed Trails in park document (Name and Distance)
 * Expand navigation after updating data model
-    [x] Allow users to view list of parks
-    [x] Allow users to to click on a park to view its address and trails
-    [x] Allow users to click on a trail (on a specific park's page) to navigate to the trail's page
+    - [x] Allow users to view list of parks
+    - [x] Allow users to to click on a park to view its address and trails
+    - [x] Allow users to click on a trail (on a specific park's page) to navigate to the trail's page
 
 ## Next Steps
 * Add trail count to Parks page
