@@ -103,8 +103,9 @@ a:visited {
     max-width: 400px;
     font: 12px/20px 'Urbanist', Arial, Helvetica, sans-serif;
 }
+/* Styling for markers with attached popup on map */
 #marker {
-    background-color: red;
+    background-color: forestgreen;
     width: 25px;
     height: 25px;
     border-radius: 50%;
