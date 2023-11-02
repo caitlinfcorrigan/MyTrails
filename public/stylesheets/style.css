@@ -22,14 +22,8 @@ body {
 
   }
 #map { 
-    /* Not centering as desired */
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    position:relative; 
     width: 85%; 
     height: 65%;
-
 }
 
 h1, h2, h3 {
@@ -105,9 +99,34 @@ a:visited {
 }
 /* Styling for markers with attached popup on map */
 #marker {
-    background-color: forestgreen;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid forestgreen;
     cursor: pointer;
     }
+
+table thead th {
+    padding: 5px;
+    border-bottom: 2px solid #424748;
+}
+    
+table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.review-user img {
+    border-radius: 50%;
+    height: 40px;
+    align-items: center;
+  }
+
+.mapboxgl-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position:relative;
+    align-content: center;
+}

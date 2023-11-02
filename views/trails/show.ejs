@@ -32,6 +32,7 @@
     <table class="content">
         <thead>
             <tr>
+                <th></th>
                 <th>User</th>
                 <th>Date</th>
                 <th>Review</th>
@@ -41,7 +42,8 @@
         <tbody>
             <% reviews.forEach(function (r) { %>
                 <tr>
-                    <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+                    <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ></td>
+                    <td><%= r.userName %></td>
                     <td><%= r.createdAt.toLocaleDateString() %></td>
                     <td><%= r.reviewText %></td>
                     <td><%= r.rating %></td>
