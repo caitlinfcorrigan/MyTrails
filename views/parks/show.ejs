@@ -9,6 +9,10 @@
 </section>
 
 <h3 class="content" >Trails</h3>
+<% if (user) { %>
+    <a class="content" href="/trails/new">Add a new trail</a>
+<% } %>
+
 <% if (park.trails.length) { %>
     <table class="content">
         <thead>
@@ -30,7 +34,7 @@
         </tbody>
     </table>
 <% } else { %>
-    <h5 class="content">No reviews yet</h5>
+    <h5 class="content">No trails yet</h5>
 <% } %>
 
 

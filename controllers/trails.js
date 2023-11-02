@@ -13,7 +13,7 @@ async function create(req, res) {
     park.trails.push(req.body);
     try {
         await park.save();
-        res.redirect(`/trails/${trail._id}`);
+        res.redirect('/trails');
     } catch (err) {
         const parks = await Park.find({});
         console.log(err);

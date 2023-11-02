@@ -79,5 +79,9 @@ Access the app here: [MyTrails](https://my-trails-app-d6518553f042.herokuapp.com
     [x] Allow users to click on a trail (on a specific park's page) to navigate to the trail's page
 
 ## Next Steps
+* Redirect users back to the Park page after creating a trail for that park
+* Add trail's average rating to `/trails` and `/trails/:id`
+* Implement sorting for `/parks` and `/trails`
+* Implement search for `/parks` and `/trails`
 
 
