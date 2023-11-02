@@ -2,7 +2,7 @@
 
 <h3 class="content">Add a new trail</h3>
 
-<form class="content" id="new-trail" action="/trails/new" method="POST">
+<form class="content" id="new-trail" action="/trails" method="POST">
     <label>Park: </label><br><br>
         <select name="park">
             <%- parks.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>

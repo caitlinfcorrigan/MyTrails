@@ -39,7 +39,7 @@ h3 {
 
 #appName, #appNav, #login {
     width: 100%;
-    background-color: forestgreen;
+    background-color: rgb(80,115,60);
     color: gold;
     padding: 10px;
     margin: 0;
@@ -77,7 +77,6 @@ h3 {
 }
 #appNav > a {
     padding: 5px 10px;
-    /* border: 2px solid goldenrod; */
 }
 a:visited {
     color: purple;
@@ -103,13 +102,13 @@ a:visited {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 16px solid forestgreen;
+    border-bottom: 16px solid rgb(80,115,60);
     cursor: pointer;
     }
 
 table thead th {
     padding: 5px;
-    border-bottom: 2px solid #424748;
+    border-bottom: 2px solid black;
 }
     
 table td {
