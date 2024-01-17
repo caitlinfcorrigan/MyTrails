@@ -7,13 +7,16 @@
 <% } %>
 
 <h2 class="content">Find a park using the map</h2>
-<!-- Add the map div and the script -->
+<!-- Add the (empty) map div and the script -->
+
 <div class="content" id='map'></div>
+
+
 <script>
 	mapboxgl.accessToken = '<%= mapkey %>';
 	const map = new mapboxgl.Map({
 		container: 'map', 
-		style: 'mapbox://styles/mapbox/outdoors-v12', // 
+		style: 'mapbox://styles/mapbox/outdoors-v12', 
 		center: [-122.3 , 37.75], // starting position [lng, lat]
 		zoom: 8 
 	});
