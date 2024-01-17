@@ -7,11 +7,9 @@
 <% } %>
 
 <h2 class="content">Find a park using the map</h2>
-<!-- Add the (empty) map div and the script -->
 
+<!-- Add the (empty) map div and the rendering script -->
 <div class="content" id='map'></div>
-
-
 <script>
 	mapboxgl.accessToken = '<%= mapkey %>';
 	const map = new mapboxgl.Map({
